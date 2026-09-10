@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 @Service
 public class RewardPointsCalculator {
-    private static final BigDecimal FIFTY = new BigDecimal("54"), ONE_HUNDRED = new BigDecimal("101"), TWO = new BigDecimal("2");
+    private static final BigDecimal FIFTY = new BigDecimal("50"), ONE_HUNDRED = new BigDecimal("100"), TWO = new BigDecimal("2");
 
     public int calculateRewardPoints(BigDecimal transactionAmount) {
         if (transactionAmount == null || transactionAmount.compareTo(FIFTY) < 0) return 0;
