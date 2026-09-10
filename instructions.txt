@@ -1,0 +1,30 @@
+Yes: make a small project, git init, add/commit some working code — then introduce one real or planted bug and commit again (so you have a clean "before" state to fix from).
+
+Then bullet 2: open the repo in your agent (Claude Code or OpenCode) and create a worktree/branch for the fix — this keeps the implementer's edits isolated from your main branch.
+
+One tweak: don't fix the bug yourself — leave it broken. The whole point of Project 4 is that the implementer agent finds and fixes it, not you.
+
+----------------------------------
+
+create  a skill file to fix the bug. 
+
+
+
+
+
+----------------
+
+
+
+
+Worktree/branch in Claude Code:
+
+Simplest for your case: git worktree add -b fix-branch ../myproject-fix — this makes a new folder + new branch, so the implementer edits there, not on main.
+Then cd into that new folder and run claude there — the agent now only sees and touches that isolated copy.
+(Claude Code also has a built-in --worktree flag for the same job, but the plain git worktree add above is the easiest to understand first.)
+
+Writing the implementer agent:
+
+It's just a plain-language prompt, not code — you tell it: "read the skill file, find the bug, fix it, commit here."
+Keep the skill file separate (a short .md with your fix steps) — the implementer reads that first, so it doesn't guess.
+The implementer should stop and hand off after committing its fix — it does not judge its own work; that's the reviewer's job next.
